@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+:root {
+  --white-clr: #ffffff;
+  --black-clr: #000000;
+  --whiteHover-clr: #d4d4d4;
+  --blackHover-clr: #494949;
+} 
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: var(--white-clr);
+}
+
+.header {
+  font-family: 'Inter', sans-serif;
+  background-image: url('./assets/os-celulares-mais-aguardados-de-2024.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  color: var(--white-clr);
+  font-size: 8vh;
+  display: flex;
+  padding-left: 300px;
+  align-items: center;
+  justify-content: left;
+  text-align: center;
+}
+.headerH1 h1 {
+  margin: 0;
+  text-align: left;
+  white-space: nowrap;
+  font-weight: 900;
+}
+
+/*-------- Barra de rolagem --------*/
+
+::-webkit-scrollbar {
+  width: 6px;
+  background-color: transparent;
+}
+::-webkit-scrollbar-track {
+  background: #ab88ff; 
+}
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #6d6d6d; 
+}
+
+/*====================================*/
+
+.content {
+  font-family: 'Inter', sans-serif;
+  color: var(--black-clr);
+  padding: 4rem 0 4rem 0;
+  text-align: center;
+  height: 80vh;
+}
+.content h2 {
+  font-size: 30px;
+  font-weight: 900;
+}
+.content p {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -1px;
+  color: #4b4b4b;
+}

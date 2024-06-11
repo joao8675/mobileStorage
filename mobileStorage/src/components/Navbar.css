@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+:root {
+    --white-clr: #ffffff;
+    --black-clr: #000000;
+    --whiteHover-clr: #d4d4d4;
+    --blackHover-clr: #494949;
+} 
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    height: 50px;
+    padding: 1rem 0px 1rem 2rem;
+    transition: background-color 0.3s ease;
+    z-index: 1000;
+    justify-content: space-between;
+  }
+  .navbar a {
+    text-decoration: none;
+  }
+  .navbar a:hover h1 {
+    font-size: 1.55rem;
+  }
+  .navbar h1 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    margin: 0;
+    font-size: 1.5rem;
+    color: var(--white-clr);
+    user-select: none;
+    transition: 0.3s;
+  }
+  
+  .navbar.scrolled {
+    background-color: #000000fb;
+  }
+
+  .navLinks {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    gap: 50px;
+  }
+  .navLinks li a {
+    font-family: 'Inter', sans-serif;
+    color: var(--white-clr);
+    font-size: 18px;
+    font-weight: 400;
+    transition: 0.3s;
+    text-transform: uppercase;
+  }
+  .navLinks li:hover a {
+    color: var(--whiteHover-clr);
+  }
+  .navLogin {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 70px;
+    gap: 40px;
+  }
+  .navLogin a {
+    color: var(--white-clr);
+    transition: 0.3s;
+  }
+  .navLogin a:nth-child(2) {
+    background: var(--white-clr);
+    padding: 20px 40px;
+    color: var(--black-clr);
+  }
+  .navLogin a:nth-child(2):hover {
+    color: var(--black-clr);
+    background: var(--whiteHover-clr);
+  }
+  .navLogin a:hover {
+    color: var(--whiteHover-clr);
+  }
