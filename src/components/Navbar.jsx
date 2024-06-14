@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Navbar.css';
 
-const Navbar = () => {
+const Navbar = ({ toggleCart }) => {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -25,7 +25,7 @@ const Navbar = () => {
       <a href="#home"><h1>MOBILESTORAGE</h1></a>
       <ul className='navLinks'>
         <li><a href="#store">Store</a></li>
-        <li><a href="cart.html">Cart</a></li>
+        <li><button onClick={toggleCart} className="cart-button">Cart</button></li>
         <li><a href="#">Profile</a></li>
       </ul>
       <div className='navLogin'>

@@ -1,21 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import s22UltraImg from '../assets/S22 ultra png.avif';
 import Product from './product';
-import './store.css';
+import Navbar from './Navbar';
+import Modal from './Modal';
 import Cart from './cart';
-
+import './store.css';
 
 const Store = () => {
   const [cart, setCart] = useState([]);
+  const [isCartOpen, setIsCartOpen] = useState(false);
 
   useEffect(() => {
-    // Recupera o estado do carrinho do localStorage
     const storedCart = JSON.parse(localStorage.getItem('cart')) || [];
     setCart(storedCart);
   }, []);
 
   useEffect(() => {
-    // Salva o estado do carrinho no localStorage
     localStorage.setItem('cart', JSON.stringify(cart));
   }, [cart]);
 
@@ -24,21 +24,20 @@ const Store = () => {
       id: 1,
       name: 'iPhone 12',
       price: 799,
-      image: s22UltraImg
+      image: s22UltraImg,
     },
     {
       id: 2,
       name: 'Samsung Galaxy S22',
       price: 699,
-      image: s22UltraImg
+      image: s22UltraImg,
     },
-    // Adicione mais produtos aqui
   ];
 
   const addToCart = (product) => {
-    const existingProduct = cart.find(item => item.id === product.id);
+    const existingProduct = cart.find((item) => item.id === product.id);
     if (existingProduct) {
-      setCart(cart.map(item =>
+      setCart(cart.map((item) =>
         item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
       ));
     } else {
@@ -47,26 +46,33 @@ const Store = () => {
   };
 
   const removeFromCart = (id) => {
-    setCart(cart.filter(item => item.id !== id));
+    setCart(cart.filter((item) => item.id !== id));
   };
 
   const isInCart = (product) => {
-    return cart.some(item => item.id === product.id);
+    return cart.some((item) => item.id === product.id);
+  };
+
+  const toggleCart = () => {
+    setIsCartOpen(!isCartOpen);
   };
 
   return (
     <div className="store-container">
+      <Navbar toggleCart={toggleCart} />
       <div className="store">
-        {products.map(product => (
-          <Product 
-            key={product.id} 
-            product={product} 
-            addToCart={addToCart} 
+        {products.map((product) => (
+          <Product
+            key={product.id}
+            product={product}
+            addToCart={addToCart}
             inCart={isInCart(product)}
           />
         ))}
       </div>
-      <Cart cart={cart} removeFromCart={removeFromCart} />
+      <Modal show={isCartOpen} onClose={toggleCart}>
+  <Cart cart={cart} removeFromCart={removeFromCart} />
+</Modal>
     </div>
   );
 };
